@@ -1,0 +1,26 @@
+
+
+@media (max-width: 1080px) {
+  .innovations {
+    flex-direction: column !important;
+    gap: 3rem !important;
+  }
+  .divider {
+    display: none !important;
+  }
+  .available {
+    max-width: 800px !important;
+  }
+  /* .available img {
+    float: none !important;
+  } */
+}
+
+@media (max-width: 650px) {
+  .available {
+    max-width: 100% !important;
+  }
+  .available img {
+    float: none !important;
+  }
+}

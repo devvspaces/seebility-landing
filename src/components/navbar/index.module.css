@@ -1,0 +1,19 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar {
+  height: 80px;
+}
+
+@media (max-width: 800px) {
+  .navbarRight {
+    display: none !important;
+  }
+  .hamburgerIcon {
+    display: block !important;
+  }
+}
