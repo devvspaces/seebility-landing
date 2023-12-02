@@ -28,10 +28,13 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import styles from "@/styles/home.module.css";
 import { addWaitlist } from "@/lib/api";
+import { useState } from "react";
 
 function Home() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const toast = useToast();
+
+  const [isLoading, setIsLoading] = useState(false);
 
   return (
     <>
@@ -135,6 +138,7 @@ function Home() {
               <form
                 onSubmit={async (e) => {
                   e.preventDefault();
+                  setIsLoading(true);
                   const email =
                     e?.currentTarget?.querySelector("input")?.value ?? "";
                   console.log("email", email);
@@ -151,6 +155,7 @@ function Home() {
                   }
                   try {
                     const response = await addWaitlist(email);
+                    setIsLoading(false);
                     if (response.status == 201) {
                       toast({
                         title: "Success",
@@ -163,6 +168,7 @@ function Home() {
                       return;
                     }
                   } catch (e) {
+                    setIsLoading(false);
                     toast({
                       title: "Error",
                       description: "You are already on the waitlist",
@@ -187,7 +193,7 @@ function Home() {
                   <FormControl>
                     <Input type="email" placeholder="Your email address" />
                   </FormControl>
-                  <Button type="submit" colorScheme="blue" px={"4rem"}>
+                  <Button type="submit" colorScheme="blue" px={"4rem"} isLoading={isLoading}>
                     Get Notified
                   </Button>
                 </HStack>
