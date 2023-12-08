@@ -85,7 +85,7 @@ function Home() {
                 </Heading>
                 <Text fontSize={"1.2rem"}>
                   <Image
-                    src={"/img/innovate.jpeg"}
+                    src={"/img/innovate.jpg"}
                     alt="innovations seebility"
                     float={"left"}
                     width={"350px"}
